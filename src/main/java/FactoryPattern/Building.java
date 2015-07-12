@@ -3,12 +3,10 @@ package FactoryPattern;
 
 public class Building implements Processes {
 
-    private BuildingType type = null;
+    private BuildingType type;
 
     public Building(BuildingType type) {
         this.type = type;
-        this.build();
-        this.destroy();
     }
 
     public void build() {

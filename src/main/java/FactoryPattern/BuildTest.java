@@ -1,38 +1,36 @@
 package FactoryPattern;
 
-import java.util.ArrayList;
 import java.util.Random;
 
 public class BuildTest {
 
-    public static void main(String[] args)
+    public static void main(String[] args) throws NullPointerException
     {
         Random rand = new Random();
         for(int i=0; i<5;i++)
         {
-          generateBuild(rand.nextInt(3));
+          Building building=generateBuild(rand.nextInt(3));
+            building.build();
+            building.destroy();
         }
     }
 
-    public static void generateBuild(int g)
+    public static Building generateBuild(int g)
     {
 
         switch (g) {
             case 0:
-                new Ranch();
-                break;
+                return new Ranch();
 
             case 1:
-                new Skyscraper();
-                break;
+                return new Skyscraper();
+
 
             case 2:
-                new Cottege();
-                break;
+                return new Cottege();
 
             default:
-                // throw some build
-                break;
+                return null;
         }
     }
 }
